@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسار الثورة: من الشرارة الأولى إلى آفاق التغيير</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0f1115;
+            --bg-secondary: #161922;
+            --card-bg: #1e222d;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
+            --accent-crimson: #a82323;
+            --text-primary: #e6e8ec;
+            --text-secondary: #9da6b4;
+            --border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.9;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(168, 35, 35, 0.15), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05), transparent 40%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Hero Header */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--card-bg) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-crimson), transparent);
+        }
+
+        .hero h1 {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .hero p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* Index / TOC */
+        .toc-card {
+            background: var(--bg-secondary);
+            border-right: 4px solid var(--accent-gold);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .toc-card h2 {
+            font-family: 'Aref Ruqaa', serif;
+            color: var(--accent-gold-light);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            margin-bottom: 12px;
+            padding-right: 15px;
+            position: relative;
+        }
+
+        .toc-list li::before {
+            content: "◆";
+            color: var(--accent-crimson);
+            position: absolute;
+            right: -10px;
+            font-size: 0.8rem;
+            top: 2px;
+        }
+
+        .toc-list a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Main Content Sections */
+        .section-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .section-title {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .content-body p {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Lists and Highlights */
+        .styled-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .styled-list li {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .styled-list li h4 {
+            color: var(--accent-gold-light);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .styled-list li h4::before {
+            content: "✦";
+            color: var(--accent-crimson);
+        }
+
+        .sub-features {
+            margin-top: 15px;
+            padding-right: 20px;
+        }
+
+        .sub-features p {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .sub-features strong {
+            color: var(--accent-gold-light);
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(168, 35, 35, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border-right: 4px solid var(--accent-crimson);
+            border-left: 4px solid var(--accent-gold);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .quote-box p {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            color: #fff;
+            font-style: italic;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .section-card { padding: 25px; }
+            .section-title { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header / Hero Section -->
+        <header class="hero">
+            <h1>مسار الثورة</h1>
+            <p class="subtitle">من الشرارة الأولى إلى آفاق التغيير</p>
+        </header>
+
+        <!-- Index / Table of Contents -->
+        <nav class="toc-card">
+            <h2>فهرس المحتويات</h2>
+            <ul class="toc-list">
+                <li><a href="#intro">المقدمة: طبيعة التحولات الإنسانية</a></li>
+                <li><a href="#ch1">الفصل الأول: الجذور والتراكمات (ما قبل الانفجار)</a></li>
+                <li><a href="#ch2">الفصل الثاني: الشرارة والميلاد العفوي</a></li>
+                <li><a href="#ch3">الفصل الثالث: التمدد والتنظيم (تحول الهبة إلى حراك)</a></li>
+                <li><a href="#ch4">الفصل الرابع: المواجهة وصدام الإرادات</a></li>
+                <li><a href="#ch5">الفصل الخامس: نقطة التحول والانكسار أو الانتصار</a></li>
+                <li><a href="#ch6">الفصل السادس: مرحلة ما بعد الثورة والتحديات الجديدة</a></li>
+                <li><a href="#outro">الخاتمة: دروس التاريخ ورسالة للمستقبل</a></li>
+            </ul>
+        </nav>
+
+        <!-- Introduction -->
+        <section id="intro" class="section-card">
+            <h2 class="section-title">المقدمة: طبيعة التحولات الإنسانية</h2>
+            <div class="content-body">
+                <p>لم تكن الثورات عبر التاريخ مجرد أحداث طارئة أو صدف عابرة، بل هي نتاج حتمي لتراكمات طويلة من مظالم اجتماعية وسياسية واقتصادية. إنها لحظة انفجار الإرادة الشعبية عندما يصل المجتمع إلى نقطة يغدو فيها الاستمرار في الوضع القائم أشبه بالموت البطيء.</p>
+                <p>يهدف هذا الكتاب إلى تتبع سيرة الثورة بوصفها كائناً حياً ينولد وينمو، يخوض صراعاته، ويمر بأسعد لحظاته وأكثرها حرجاً، حتى يصل إلى محطته الأخيرة؛ سواء تمثلت في التغيير الشامل وبناء دولة جديدة، أو في الكبوة والاستيعاب المشوب بالتسويات.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 1 -->
+        <section id="ch1" class="section-card">
+            <h2 class="section-title">الفصل الأول: الجذور والتراكمات (ما قبل الانفجار)</h2>
+            <div class="content-body">
+                <p>لا تبدأ الثورات من فراغ، بل تسبقها سنوات، وربما عقود، من الاحتقان المكتوم. وتتلخص أبرز عوامل التهيئة للثورة في النقاط التالية:</p>
+                <ul class="styled-list">
+                    <li>
+                        <h4>1. الانسداد السياسي والإقصاء</h4>
+                        <p>عندما تحتكر فئة قليلة خيارات القرار، وتُغلق منافذ التعبير السلمي، يفقد المواطن شعوره بالانتماء ويتحول الرعايا إلى طاقة غضب كامنة.</p>
+                    </li>
+                    <li>
+                        <h4>2. الفجوة الاقتصادية والعدالة المفقودة</h4>
+                        <p>يؤدي اتساع الفوارق بين الطبقات، وانتشار الفساد والمحسوبية، وزيادة معدلات البطالة والفقر، إلى تهيئة البيئة الخصبة للرفض والتعديل الجذري.</p>
+                    </li>
+                    <li>
+                        <h4>3. الأزمة الفكرية والثقافية</h4>
+                        <p>سبقت كل ثورة كبرى حركة تنويرية أو نقد للواقع؛ حيث يبدأ الكتاب والمفكرون في كشف عورات النظام القائم وإعادة تعريف مفاهيم الحرية والكرامة والعدالة.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Chapter 2 -->
+        <section id="ch2" class="section-card">
+            <h2 class="section-title">الفصل الثاني: الشرارة والميلاد العفوي</h2>
+            <div class="content-body">
+                <p>تأتي "الشرارة" دائماً في لحظة غير متوقعة، وحادث بسيط قد يراه النظام هامشياً، لكنه يمثل القشة التي تقصم ظهر البعير.</p>
+                <div class="sub-features">
+                    <p><strong>• الحادثة المُلهمة:</strong> رمزية الضحية أو الموقف الشجاع الذي يلامس مشاعر الجماهير ويحرّك الوجدان الجمعي.</p>
+                    <p><strong>• الانكسار الأول لحاجز الخوف:</strong> خروج الفئات الأولى إلى الشارع، وترديد الشعار الأول الذي يختصر ألم السنين.</p>
+                    <p><strong>• الاستجابة الأمنية الخاطئة:</strong> لجوء أجهزة السلطة إلى القوة المفرطة بدلاً من الاستماع، مما يحول المطلب المحدود إلى مطالب جذرية بالمحي والإسقاط.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 3 -->
+        <section id="ch3" class="section-card">
+            <h2 class="section-title">الفصل الثالث: التمدد والتنظيم (تحول الهبة إلى حراك)</h2>
+            <div class="content-body">
+                <p>في هذه المرحلة، تنتقل الثورة من طور العفوية والغضب السريع إلى طور التنظيم والاستدامة.</p>
+                <ul class="styled-list">
+                    <li>
+                        <h4>أ. اتساع الجغرافيا والديموغرافيا</h4>
+                        <p>تنتقل الاحتجاجات من العاصمة أو المدن الرئيسية إلى الأقاليم والأرياف، وتتشكل لوحة جغرافية وشعبية تضم الشباب، النساء، العمال، والنقابات المهنية.</p>
+                    </li>
+                    <li>
+                        <h4>ب. صناعة الرموز والأدوات</h4>
+                        <div class="sub-features">
+                            <p><strong>• الرموز الشعاراتية:</strong> ابتكار الهتافات، الأغاني، الجداريات، والصحافة البديلة.</p>
+                            <p><strong>• القيادات الميدانية:</strong> بروز مجالس وتنسيقيات شبابية تتولى إدارة الشارع وتنظيم المسيرات والخدمات اللوجستية.</p>
+                            <p><strong>• الفضاء الرقمي:</strong> استخدام شبكات التواصل لنقل الحقيقة والتغلب على التعتيم الإعلامي الرسمي.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Chapter 4 -->
+        <section id="ch4" class="section-card">
+            <h2 class="section-title">الفصل الرابع: المواجهة وصدام الإرادات</h2>
+            <div class="content-body">
+                <p>تعتبر هذه المرحلة الأكثر حرجاً وخطورة في حياة الثورة، حيث يعمد النظام الدفاع عن بقائه بكل ما أوتي من قوة.</p>
+                <ul class="styled-list">
+                    <li>
+                        <h4>1. إستراتيجيات النظام</h4>
+                        <div class="sub-features">
+                            <p><strong>• شيطنة الثوار:</strong> اتهام الحراك بالعمالة للخارج أو السعي للتخريب.</p>
+                            <p><strong>• سياسة المماطلة والوعود:</strong> تقديم إصلاحات شكليّة ومتأخرة لامتصاص الغضب.</p>
+                            <p><strong>• الرهان على عامل الوقت:</strong> محاولة إنهاك الشارع وإشاعة الخوف والاضطراب الاقتصادي.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h4>2. صمود الثورة</h4>
+                        <div class="sub-features">
+                            <p>• تعزيز العصيان المدني والإضرابات الشاملة.</p>
+                            <p>• الحفاظ على سلمية الحراك لتفويت الفرصة على خيارات العنف.</p>
+                            <p>• كسب تعاطف الرأي العام الدولي والمؤسسات الحقوقية.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Chapter 5 -->
+        <section id="ch5" class="section-card">
+            <h2 class="section-title">الفصل الخامس: نقطة التحول والانكسار أو الانتصار</h2>
+            <div class="content-body">
+                <p>تصل اللحظة الحاسمة عندما يعجز الطرفان عن حسم الصراع لصالحيهما، وتبدأ المعادلة بالانكسار:</p>
+                <div class="sub-features">
+                    <p><strong>• تخلي المؤسسات الحيادية:</strong> عندما تدرك مؤسسات الدولة الصلبة (كالجيش أو القضاء) أن كلفة حماية النظام أصبحت أعلى من كلفة التخلي عنه.</p>
+                    <p><strong>• سقوط الرأس والرموز:</strong> تنحي أو فرار القيادات التنفيذية الأولى تحت ضغط الشارع والموقف الدولي.</p>
+                    <p><strong>• لحظة الانتشاء:</strong> دخول الميادين والتعبير عن الفرح الأكبر بتحقيق الهدف المباشر الأول للثورة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 6 -->
+        <section id="ch6" class="section-card">
+            <h2 class="section-title">الفصل السادس: مرحلة ما بعد الثورة والتحديات الجديدة</h2>
+            <div class="content-body">
+                <p>إن إسقاط النظام السائد ليس إلا نهاية الفصل الأول من كتاب التغيير؛ فالبناء أذكر وأصعب من الهدم.</p>
+                <ul class="styled-list">
+                    <li>
+                        <h4>1. إدارة المرحلة الانتقالية</h4>
+                        <p>خطر الوقوع في الفراغ السياسي أو الصراع بين مكونات الثورة ذات الخلفيات الأيديولوجية المختلفة. مع ضرورة صياغة دستور جديد يضمن التداول السلمي للسلطة والتأسيس لعدالة انتقالية.</p>
+                    </li>
+                    <li>
+                        <h4>2. التحدي الاقتصادي والخدمي</h4>
+                        <p>إعادة دوران عجلة الإنتاج وطمأنة المستثمرين، وتلبية طموحات الناس المعيشية السريعة مع المحافظة على الإصلاح الاستراتيجي.</p>
+                    </li>
+                    <li>
+                        <h4>3. فلول النظام المتربصة</h4>
+                        <p>مواجهة الثورات المضادة التي تسعى لإعادة إنتاج المنظومة القديمة بأقنعة جديدة.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="outro" class="section-card">
+            <h2 class="section-title">الخاتمة: دروس التاريخ ورسالة للمستقبل</h2>
+            <div class="content-body">
+                <p>إن الثورات ليست مساراً خطياً مستقيماً يحقق النجاح الكامل بين عشية وضحاها، بل هي عملية تاريخية ممتدة تتخللها المد والجزر، ونجاحات وإخفاقات.</p>
+                <p>تتجسد الخاتمة الحقيقية لأي ثورة في نجاحها بـ:</p>
+                <div class="sub-features">
+                    <p><strong>1.</strong> ترسيخ قيم الكرامة والحرية في وعي الأجيال القادمة بحيث يستحيل استعبادهم مجدداً.</p>
+                    <p><strong>2.</strong> بناء دولة المؤسسات وسيادة القانون التي تتسع لجميع مواطنيها دون تمييز.</p>
+                    <p><strong>3.</strong> الإدراك الشامل بأن الحفاظ على مكتسبات التغيير يتطلب يقظة مواطنية مستمرة ومشاركة فاعلة لا تنتهي بتوقف الاحتجاجات.</p>
+                </div>
+
+                <div class="quote-box">
+                    <p>"إن الحرية ليست هبة تُعطى، بل مسار يُبنى بالوعي، ويُصان بالعدل، ويستمر بالعمل الصالح."</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>تم تنسيق وتصميم الكتاب إلكترونياً للعرض الجذاب والمريح للعين | 2026</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
